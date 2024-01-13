@@ -15,8 +15,7 @@ public:
         if(root==NULL){
             return 0;
         }
-        int left = rangeSumBST(root->left,low,high);
-        int right = rangeSumBST(root->right,low,high);
-        return left + right + ((root->val>=low && root->val<=high)?root->val:0);
+        int sum = rangeSumBST(root->left,low,high) + rangeSumBST(root->right,low,high);
+        return sum + ((root->val>=low && root->val<=high)?root->val:0);
     }
 };
