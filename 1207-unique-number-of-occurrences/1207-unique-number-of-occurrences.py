@@ -6,10 +6,7 @@ class Solution(object):
         """
         m = {}
         for number in arr:
-            if number in m.keys():
-                m[number] += 1
-            else:
-                m[number] = 1
+            m[number] = arr.count(number)
         mylist = list(m.values())
         return len(mylist) == len(set(mylist))
         
