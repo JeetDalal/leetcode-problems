@@ -14,6 +14,7 @@ public:
                 return {};
             }
             v.push_back(mini);
+            mini.clear();
         }
         return v;
     }
