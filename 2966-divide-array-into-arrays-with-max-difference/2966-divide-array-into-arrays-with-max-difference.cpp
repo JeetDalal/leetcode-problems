@@ -7,7 +7,7 @@ public:
         for(int i=0;i<n;i+=3){
             vector<int> mini;
             mini.push_back(nums[i]);
-            if(abs(nums[i]-nums[i+2])<=k){
+            if(nums[i+2]-nums[i]<=k){
                 mini.push_back(nums[i+1]);
                 mini.push_back(nums[i+2]);
             }else{
