@@ -4,8 +4,8 @@ public:
         int n = nums.size();
         vector<vector<int>> v;
         sort(nums.begin(),nums.end());
+         vector<int> mini;
         for(int i=0;i<n;i+=3){
-            vector<int> mini;
             mini.push_back(nums[i]);
             if(nums[i+2]-nums[i]<=k){
                 mini.push_back(nums[i+1]);
