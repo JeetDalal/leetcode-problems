@@ -10,13 +10,13 @@ public:
 }
     int findLeastNumOfUniqueInts(vector<int>& arr, int k) {
         unordered_map<int, pair<int, int> > hash; // hash map
-        int count=0;
+       
     for (int i = 0; i < arr.size(); i++) {
         if (hash.find(arr[i]) != hash.end())
             hash[arr[i]].second++;
         else{
             hash[arr[i]] = make_pair(i, 1);
-            count++;
+          
         }
             
     } // store the count of all the elements in the hashmap
@@ -38,13 +38,12 @@ public:
             if(hash[val].second == 1){
                 b.pop_back();
                 hash.erase(val);
-                count--;
             }else{
                 hash[val].second--;
             }
         }
         k--;
     }
-     return count;  
+     return b.size();  
     }
 };
