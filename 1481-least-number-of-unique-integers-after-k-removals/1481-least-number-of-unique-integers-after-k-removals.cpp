@@ -9,7 +9,7 @@ public:
         return (p.second.first < p1.second.first);
 }
     int findLeastNumOfUniqueInts(vector<int>& arr, int k) {
-        unordered_map<int, pair<int, int> > hash; // hash map
+        unordered_map<int, pair<int, int> > hash; 
        
     for (int i = 0; i < arr.size(); i++) {
         if (hash.find(arr[i]) != hash.end())
@@ -19,18 +19,13 @@ public:
           
         }
             
-    } // store the count of all the elements in the hashmap
- 
-    // Iterator to Traverse the Hashmap
-    auto it = hash.begin();
- 
-    // Vector to store the Final Sortted order
+    } 
+    
     vector<pair<int, pair<int, int> > > b;
-    for (it; it != hash.end(); ++it)
-        b.push_back(make_pair(it->first, it->second));
+    for (auto &it:hash)
+        b.push_back(make_pair(it.first, it.second));
  
     sort(b.begin(), b.end(), fcompare);
-    // cout<<count;
     while(k>0){
         int val = b[b.size()-1].first;
         cout<<val<<" ";  
