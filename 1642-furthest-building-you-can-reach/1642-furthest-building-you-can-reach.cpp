@@ -24,7 +24,6 @@ public:
             if(l < 0) break;
         }
         
-        
         return i;
     }
 };
