@@ -7,8 +7,9 @@ public:
         while(n/2>0){
             if(n==1) return true;
             if((float)(n%2)!=0) return false;
-            n=n>>1;
+            n/=2;
         }
         return true;
+      
     }
 };
