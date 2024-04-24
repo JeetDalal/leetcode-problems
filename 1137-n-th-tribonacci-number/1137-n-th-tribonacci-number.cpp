@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int solve(int n, vector<int>& v){
+    int solve(int n, vector<int> &v){
         
         if(v[n] != -1){
             return v[n];
