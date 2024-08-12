@@ -9,7 +9,7 @@ public:
         while(!q.empty()){
             int currentNode = q.front()[0];
             int currentColor = q.front()[1];
-            // int currentKaParent = q.front()[2];
+            
             q.pop();
             for(auto it: graph[currentNode]){
                 if(visited[it]== -1){
