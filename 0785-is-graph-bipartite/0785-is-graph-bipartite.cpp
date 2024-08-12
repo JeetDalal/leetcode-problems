@@ -3,12 +3,12 @@ public:
     bool bfs(int node,vector<int> &visited,vector<vector<int>> &graph){
         int initialColor=0;
         visited[node] = 0;
-        queue<vector<int>> q;
+        queue<pair<int,int>> q;
         q.push({node,initialColor});
         
         while(!q.empty()){
-            int currentNode = q.front()[0];
-            int currentColor = q.front()[1];
+            int currentNode = q.front().first;
+            int currentColor = q.front().second;
             
             q.pop();
             for(auto it: graph[currentNode]){
