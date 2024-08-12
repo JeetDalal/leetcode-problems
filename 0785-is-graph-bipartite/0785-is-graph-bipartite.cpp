@@ -13,7 +13,6 @@ public:
             q.pop();
             for(auto it: graph[currentNode]){
                 if(visited[it]== -1){
-                    cout<<it<<" "<<currentColor<<endl;
                     visited[it] = !currentColor;
                     q.push({it,visited[it]});
                 }else{
