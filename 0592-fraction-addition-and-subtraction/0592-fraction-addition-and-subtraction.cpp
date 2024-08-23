@@ -24,31 +24,31 @@ public:
         vector<int> denomVals;
         vector<int> numerVals;
         int numeratorTotal = 0;
+        int i = 0;
+        int sign = 1; // Initialize sign to handle positive or negative fractions
 
-        int sign = 1; // To handle positive or negative signs
-        int numerator = 0;
-        int denominator = 0;
+        // Check if the first character is a sign or a number
+        if (exp[0] == '-') {
+            sign = -1;
+            i++;
+        } else if (exp[0] == '+') {
+            i++;
+        }
 
-        // Parsing the expression to extract numerators and denominators
-        for (int i = 0; i < exp.size();) {
-            if (exp[i] == '+' || exp[i] == '-') {
-                sign = (exp[i] == '-') ? -1 : 1;
-                i++;
-            }
-            
-            // Extract numerator
-            numerator = 0;
+        while (i < exp.size()) {
+            // Parse numerator
+            int numerator = 0;
             while (i < exp.size() && isdigit(exp[i])) {
                 numerator = numerator * 10 + (exp[i] - '0');
                 i++;
             }
-            numerator *= sign; // Apply the sign
+            numerator *= sign; // Apply the sign to the numerator
 
             // Skip the '/'
             i++;
 
-            // Extract denominator
-            denominator = 0;
+            // Parse denominator
+            int denominator = 0;
             while (i < exp.size() && isdigit(exp[i])) {
                 denominator = denominator * 10 + (exp[i] - '0');
                 i++;
@@ -56,12 +56,18 @@ public:
 
             numerVals.push_back(numerator);
             denomVals.push_back(denominator);
+
+            // Update the sign for the next fraction (if any)
+            if (i < exp.size() && (exp[i] == '+' || exp[i] == '-')) {
+                sign = (exp[i] == '-') ? -1 : 1;
+                i++; // Move past the sign character
+            }
         }
 
         // Calculate the LCM of all denominators
         int commonDenominator = lcmOfArray(denomVals);
 
-        // Sum up all numerators after converting to the common denominator
+        // Sum up all numerators after converting them to the common denominator
         for (int i = 0; i < numerVals.size(); i++) {
             numeratorTotal += numerVals[i] * (commonDenominator / denomVals[i]);
         }
