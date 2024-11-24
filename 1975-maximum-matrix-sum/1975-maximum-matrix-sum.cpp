@@ -13,7 +13,6 @@ public:
                 sum+=abs(matrix[i][j]);
             }
         }
-        cout<<negativeCount<<"  "<<sum<<endl;
         if(negativeCount%2==0) return sum;
         return (sum - 2*smallest);
     }
